@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="button"
-        android:tooltipText="버튼입니다."
-        android:drawableLeft="@drawable/black_night"
-        android:drawablePadding="10dp"
-        android:textSize="30dp"
-        android:paddingHorizontal="30dp"
-        android:background="@drawable/custom_button_selector"
-        android:textColor="#FFEB3B"
-        android:layout_gravity="center"
+        android:hint="이메일"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="비밀번호"
         />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="이름"
+        />
+
+    <EditText
+        android:id="@+id/et_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="나이"
+        />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:onClick="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#03A9F4"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
