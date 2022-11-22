@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         et_email.imeOptions = EditorInfo.IME_ACTION_SEND
+        // 마지막  에딧텍스트 완료버튼은  Log in 호출
         et_age.setOnEditorActionListener { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_DONE) {
                 Login(v)
@@ -25,6 +26,13 @@ class MainActivity : AppCompatActivity() {
             }
             else false
         }
+
+        // 불러오기
+        var pref = this.getPreferences(0)
+        et_email.setText(pref.getString("이메일", ""))
+        et_password.setText(pref.getString("비밀번호", ""))
+        et_name.setText(pref.getString("이름", ""))
+        et_age.setText(pref.getString("나이", ""))
     }
 
     fun Login(v : View) {
@@ -38,9 +46,15 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("이름", "Over")
             startActivity(intent)
 
-            //startActivity(Intent(this, JavaActivity::class.java))
-            //(R.layout.activity_java)
-            //tv_result.text = "Over님 환형합니다."
+            setContentView(R.layout.activity_java)
+            tv_result.text = "Over님 환영합니다"
+
+            //저장
+            var editor = this.getPreferences(0).edit()
+            editor.putString("이메일", "donghyeok7312@naver.com").apply()
+            editor.putString("비밀번호", "1234").apply()
+            editor.putString("이름", "donghyeok").apply()
+            editor.putString("나이", "22").apply()
 
             Toast.makeText(this, "로그인 성공!!", Toast.LENGTH_SHORT).show()
         }
